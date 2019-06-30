@@ -1,15 +1,28 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
-  "icons": [
-    {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "manifest_version": 2,
+  "name": "Bound",
+  "version": "1.0.1",
+  "description": "Bound Extension!",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2T9K9X8cNajSSeu8rot5+Kakj6gjq0VTTQiGUlLHW/MiHprT9M5mTrORL7WV7xQOifVNicEocNFZJyxxR4iU2cGzW4U3W89g3FhOQe6XUv80RctPHGYGOCbjZ9GJvsmVOAhc+PwDiQ1A54QUM+VNwrs71fHxKpZ60CERLDUfv89eHyYqqvoSZ5PqooaY8W7IPSTQeZcIfFj8IbacAxHKHaYBiLEfo3E1KHUi1hjzyyAVxqgFfuNdvdnkUayiqPALqigKScg6z2jS9DECMzL26lAlbwrWmCYvDV49GjzlpzbA2yQnBKffti7vrQgAUWoSKBVSn07EVbfJChj0SXr6MQIDAQAB",
+  "oauth2": {
+    "client_id": "39463595766-kk9udanojehc07k7mlepm9nunac9ns6c.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/drive",
+      "https://www.googleapis.com/auth/calendar.readonly",
+      "https://www.googleapis.com/auth/calendar.events.readonly"
+    ]
+  },
+
+  "browser_action": {
+    "default_popup": "index.html",
+    "default_icon": "letter-b.png"
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+
+  "permissions": ["identity"],
+
+  "content_security_policy": "script-src 'self' https://www.gstatic.com/ https://*.firebaseio.com https://www.googleapis.com; object-src 'self'; connect-src 'self' wss://*.firebaseio.com;"
 }
