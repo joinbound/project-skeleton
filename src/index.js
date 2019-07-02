@@ -2,16 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-// import Firebase from './components/firebase/firebase';
-// import { FirebaseContext } from './components/firebase';
+import Firebase from './components/firebase/firebase';
+import { FirebaseContext } from './components/firebase';
 import * as serviceWorker from './serviceWorker';
 require('dotenv').config();
 
 ReactDOM.render(
-  // <FirebaseContext.Provider value={new Firebase()}>
-  //   <App />
-  // </FirebaseContext.Provider>,
-  <App />,
+  <FirebaseContext.Provider value={new Firebase()}>
+    <App />
+  </FirebaseContext.Provider>,
+
   document.getElementById('root')
 );
 

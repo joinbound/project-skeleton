@@ -1,34 +1,29 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { withFirebase } from './firebase';
-import Home from './Home';
 import { compose } from 'recompose';
+// import firebase from './firebase';
 
 class SignInBase extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      email: '',
-      password: '',
-      error: null,
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = { error: null };
+    this.onSubmit = this.onSubmit.bind(this);
   }
-  handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
-  handleSubmit = event => {
-    const { email, password } = this.state;
-
+  onSubmit = event => {
     this.props.firebase
-      .doSignInWithEmailAndPassword(email, password)
-      .then(() => {
-        this.setState({
-          email: '',
-          password: '',
+      .doSignInWithGoogle()
+      .then(socialAuthUser => {
+        // Create a user in your Firebase Realtime Database too
+        return this.props.firebase.user(socialAuthUser.user.uid).set({
+          username: socialAuthUser.user.displayName,
+          email: socialAuthUser.user.email,
+          roles: {},
         });
-        this.props.history.push(Home);
+      })
+      .then(() => {
+        this.setState({ error: null });
+        this.props.history.push('/home');
       })
       .catch(error => {
         this.setState({ error });
@@ -38,34 +33,15 @@ class SignInBase extends Component {
   };
 
   render() {
-    const { email, password, error } = this.state;
-    const isInvalid = password === '' || email === '';
+    console.log('PROPS', this.props);
+
+    const { error } = this.state;
     return (
-      <>
-        <h1>Sign In</h1>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            name="email"
-            value={email}
-            onChange={this.handleChange}
-            type="text"
-            placeholder="Email Address"
-          />
-          <input
-            name="password"
-            value={password}
-            onChange={this.handleChange}
-            type="password"
-            placeholder="Password"
-          />
+      <form onSubmit={this.onSubmit}>
+        <button type="submit">Sign In with Google</button>
 
-          <button type="submit" disabled={isInvalid}>
-            Sign In
-          </button>
-
-          {error && <p>{error.message}</p>}
-        </form>
-      </>
+        {error && <p>{error.message}</p>}
+      </form>
     );
   }
 }
