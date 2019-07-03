@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { withFirebase } from './firebase';
 import { compose } from 'recompose';
-// import firebase from './firebase';
 
 class SignInBase extends Component {
   constructor(props) {
     super(props);
-    this.state = { error: null };
+    this.state = { error: null, user: null };
     this.onSubmit = this.onSubmit.bind(this);
   }
   onSubmit = event => {
@@ -15,16 +14,10 @@ class SignInBase extends Component {
       .doSignInWithGoogle()
       .then(socialAuthUser => {
         // Create a user in your Firebase Realtime Database too
-        return this.props.firebase.user(socialAuthUser.user.uid).set({
-          username: socialAuthUser.user.displayName,
-          email: socialAuthUser.user.email,
-          roles: {},
-        });
+        console.log('have user', socialAuthUser);
+        this.setState({ error: null, user: socialAuthUser });
       })
-      .then(() => {
-        this.setState({ error: null });
-        this.props.history.push('/home');
-      })
+
       .catch(error => {
         this.setState({ error });
       });
@@ -33,8 +26,6 @@ class SignInBase extends Component {
   };
 
   render() {
-    console.log('PROPS', this.props);
-
     const { error } = this.state;
     return (
       <form onSubmit={this.onSubmit}>

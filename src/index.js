@@ -1,15 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import { SignIn } from './components';
+import { BrowserRouter as Router } from 'react-router-dom';
 import Firebase from './components/firebase/firebase';
 import { FirebaseContext } from './components/firebase';
 import * as serviceWorker from './serviceWorker';
-require('dotenv').config();
 
 ReactDOM.render(
   <FirebaseContext.Provider value={new Firebase()}>
-    <App />
+    <Router>
+      <SignIn />
+    </Router>
   </FirebaseContext.Provider>,
 
   document.getElementById('root')
