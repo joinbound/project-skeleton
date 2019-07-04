@@ -2,13 +2,20 @@ import app from 'firebase/app';
 import 'firebase/auth';
 
 const config = {
-  apiKey: process.env.REACT_APP_API_KEY,
-  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
-  databaseURL: process.env.REACT_APP_DATABASE_URL,
-  projectId: process.env.REACT_APP_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_APP_ID,
+  // apiKey: process.env.REACT_APP_API_KEY,
+  // authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  // databaseURL: process.env.REACT_APP_DATABASE_URL,
+  // projectId: process.env.REACT_APP_PROJECT_ID,
+  // storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  // messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  // appId: process.env.REACT_APP_APP_ID,
+  apiKey: "AIzaSyAwOPNNx6xYTjXizuviX7BQ9zI-D5R7Tb8",
+  authDomain: "bound-6d44c.firebaseapp.com",
+  databaseURL: "https://bound-6d44c.firebaseio.com",
+  projectId: "bound-6d44c",
+  storageBucket: "",
+  messagingSenderId: "1073398926369",
+  appId: "1:1073398926369:web:67cfe7b3f09d95c9"
 };
 
 class Firebase {
@@ -25,6 +32,11 @@ class Firebase {
 
   doSignInWithEmailAndPassword = (email, password) =>
     this.auth.signInWithEmailAndPassword(email, password);
+
+  signInWithCredential = (credentials) => {
+    const token = this.googleProvider.credential(credentials.oauthIdToken);
+    return this.auth.signInWithCredential(token);
+  };
 
   doSignInWithGoogle = () => this.auth.signInWithPopup(this.googleProvider);
 

@@ -7,17 +7,49 @@ class SignInBase extends Component {
   constructor(props) {
     super(props);
     this.state = { error: null, user: null };
-    this.onSubmit = this.onSubmit.bind(this);
   }
-  onSubmit = event => {
+
+  // Init, retrieve for credentials from localStorage, if it's there update credentials
+  componentDidMount() {
+    // Retrieve and parse credentials from localStorage
+    const credentials = JSON.parse(localStorage.getItem('credentials'));
+
+    // If does not exist, set logged out state
+    if (!credentials) {
+      return this.setState({ error: null, user: null });
+    }
+    
+    // Validate credentials and handlelogin
+    this.props.firebase
+      .signInWithCredential(credentials)
+      .then((userCredential) => {
+        this.handleLogin(userCredential);
+      })
+      .catch(error => {
+        this.handleLogout(error);
+      });
+  }
+
+  // Handle Login Status: update credentials in localStorage and state
+  handleLogin = userCredential => {
+    const { credential, user } = userCredential;
+    localStorage.setItem('credentials', JSON.stringify(credential.toJSON()));
+    this.setState({ error: null, user: user });
+  }
+
+  // Handle Logout Status: clear credentials in localStorage and state
+  handleLogout = (error = null) => {
+    localStorage.removeItem('credentials');
+    this.setState({ error: error, user: null });
+  }
+
+  // Handle user login
+  signIn = event => {
     this.props.firebase
       .doSignInWithGoogle()
-      .then(socialAuthUser => {
-        // Create a user in your Firebase Realtime Database too
-        console.log('have user', socialAuthUser);
-        this.setState({ error: null, user: socialAuthUser });
+      .then((userCredential) => {
+        this.handleLogin(userCredential);
       })
-
       .catch(error => {
         this.setState({ error });
       });
@@ -25,14 +57,29 @@ class SignInBase extends Component {
     event.preventDefault();
   };
 
+  // Handle user logout
+  signOut = event => {
+    this.handleLogout();
+  }
+
   render() {
-    const { error } = this.state;
+    const { error, user } = this.state;
+    const { children } = this.props;
     return (
-      <form onSubmit={this.onSubmit}>
-        <button type="submit">Sign In with Google</button>
+      <>
+        {user ? (
+          <>
+            <button onClick={this.signOut}>Sign Out</button>
+            {children}
+          </>
+        ) : (
+          <>
+           <button onClick={this.signIn}>Sign In with Google</button>
+          </>
+        )}
 
         {error && <p>{error.message}</p>}
-      </form>
+      </>
     );
   }
 }
