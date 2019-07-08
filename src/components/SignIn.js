@@ -18,11 +18,11 @@ class SignInBase extends Component {
     if (!credentials) {
       return this.setState({ error: null, user: null });
     }
-    
+
     // Validate credentials and handlelogin
     this.props.firebase
       .signInWithCredential(credentials)
-      .then((userCredential) => {
+      .then(userCredential => {
         this.handleLogin(userCredential);
       })
       .catch(error => {
@@ -35,19 +35,19 @@ class SignInBase extends Component {
     const { credential, user } = userCredential;
     localStorage.setItem('credentials', JSON.stringify(credential.toJSON()));
     this.setState({ error: null, user: user });
-  }
+  };
 
   // Handle Logout Status: clear credentials in localStorage and state
   handleLogout = (error = null) => {
     localStorage.removeItem('credentials');
     this.setState({ error: error, user: null });
-  }
+  };
 
   // Handle user login
   signIn = event => {
     this.props.firebase
       .doSignInWithGoogle()
-      .then((userCredential) => {
+      .then(userCredential => {
         this.handleLogin(userCredential);
       })
       .catch(error => {
@@ -60,7 +60,7 @@ class SignInBase extends Component {
   // Handle user logout
   signOut = event => {
     this.handleLogout();
-  }
+  };
 
   render() {
     const { error, user } = this.state;
@@ -73,9 +73,14 @@ class SignInBase extends Component {
             {children}
           </>
         ) : (
-          <>
-           <button onClick={this.signIn}>Sign In with Google</button>
-          </>
+          <div id="signin">
+            <img id="logo" src="/images/WhiteBoundLogo.png" alt="bound logo" />
+            <button onClick={this.signIn} id="signinButton">
+              <span class="icon" />
+
+              <span class="buttonText"> Sign in with Google</span>
+            </button>
+          </div>
         )}
 
         {error && <p>{error.message}</p>}
