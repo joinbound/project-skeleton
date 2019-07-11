@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-//for adding events
+/*global chrome*/
 
 chrome.browserAction.onClicked.addListener(function() {
   chrome.tabs.create({ url: 'index.html' });

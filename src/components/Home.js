@@ -1,9 +1,26 @@
-import React from 'react';
-// import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
 
-const Home = () => (
-  <div>
-    <h1>Welcome </h1>
-  </div>
-);
+class Home extends Component {
+  constructor() {
+    super();
+    this.state = {
+      selected: true,
+    };
+  }
+  render() {
+    return (
+      <>
+        <div id="border">
+          <h1 id="txt">Bound</h1>
+          <span className="berries" />
+        </div>
+        <div id="nav">
+          <button className="navTxt">Calendar</button>
+          <button className="navTxt">Store</button>
+        </div>
+      </>
+    );
+  }
+}
+
 export default Home;
