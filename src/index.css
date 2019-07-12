@@ -86,3 +86,44 @@ span.berries {
   margin-left: 5%;
   margin-right: 5%;
 }
+
+
+/* ---------------------------------Start Calendar---------------------------------*/
+.
+#upcomingEvents {
+  font-family: AvenirNext-DemiBold;
+  font-size: 16px;
+  color: rgba(0,0,0,0.78);
+  letter-spacing: 0.25px;
+  text-align: left;
+
+}
+
+#eventTitle {
+  font-family: AvenirNext-Medium;
+  font-size: 13px;
+  color: rgba(0,0,0,0.78);
+  letter-spacing: 0.2px;
+  text-align: left;
+  line-height: 23px;
+}
+
+#numberOfBerries {
+  font-family: AvenirNext-Bold;
+  font-size: 15px;
+  color: #FFFFFF;
+  letter-spacing: 0.2px;
+  text-align: left;  
+}
+
+
+.checkIn {
+  font-family: AvenirNext-DemiBold;
+  font-size: 12px;
+  color: #FFFFFF;
+  letter-spacing: 0.22px;
+  text-align: center;
+  line-height: 13px;
+}
+
+/* ---------------------------------End Calendar---------------------------------*/
