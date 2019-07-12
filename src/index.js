@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { SignIn } from './components';
-import { Home } from './components';
+import { SignIn, NavBar } from './components';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Firebase from './components/firebase/firebase';
 import { FirebaseContext } from './components/firebase';
@@ -12,7 +11,7 @@ ReactDOM.render(
   <FirebaseContext.Provider value={new Firebase()}>
     <Router>
       <SignIn>
-        <Home />
+        <NavBar />
       </SignIn>
     </Router>
   </FirebaseContext.Provider>,
