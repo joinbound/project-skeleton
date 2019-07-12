@@ -69,8 +69,9 @@ constructor(props) {
               <img id="eventMemberIcon" src="/images/eventMemberIcon.png" alt="Event Time"/>
               {event.numberOfPeople}
               </ul>
-              
+
               </div>
+            
               <div className="checkInButton">
               <button id="checkIn"> Check In</button>
               </div>
