@@ -1,35 +1,39 @@
 import React, { Component } from 'react';
+import Store from './Store';
+import Calendar from './Calendar';
 
 class NavBar extends Component {
   constructor() {
     super();
     this.state = {
-      calView: true,
       storeView: false,
     };
-    this.handleClickCal = this.handleClickCal.bind(this);
-    this.handleClickStore = this.handleClickStore.bind(this);
+
+    this.handleClick = this.handleClick.bind(this);
   }
-  handleClickCal = () => {
-    this.setState(
-      this.setState(prevState => ({
-        calView: !prevState.calView,
-        storeView: !prevState.storeView,
-      }))
-    );
-  };
 
-  handleClickStore = () => {
-    this.setState(
-      this.setState(prevState => ({
-        storeView: !prevState.storeView,
-        calView: !prevState.calView,
-      }))
-    );
+  handleClick = event => {
+    if (event.target.className === 'store' && !this.state.storeView) {
+      this.setState(() => ({
+        storeView: true,
+      }));
+    } else if (
+      event.target.className === 'cal' &&
+      this.state.storeView === true
+    ) {
+      this.setState(() => ({
+        storeView: false,
+      }));
+    }
   };
-
   render() {
-    console.log('state', this.state);
+    let screen;
+    if (this.state.storeView === true) {
+      screen = <Store />;
+    } else if (this.state.storeView === false) {
+      screen = <Calendar />;
+    }
+
     return (
       <>
         <div id="border">
@@ -37,13 +41,14 @@ class NavBar extends Component {
           <span className="berries" />
         </div>
         <div id="nav">
-          <button className="navTxt" onClick={this.handleClickCal}>
+          <button className="cal" onClick={this.handleClick}>
             Calendar
           </button>
-          <button className="navTxt" onClick={this.handleClickStore}>
+          <button className="store" onClick={this.handleClick}>
             Store
           </button>
         </div>
+        {screen}
       </>
     );
   }
