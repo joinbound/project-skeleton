@@ -28,6 +28,7 @@ class NavBar extends Component {
   };
   render() {
     let screen;
+    let berryCount = 0;
     if (this.state.storeView === true) {
       screen = <Store />;
     } else if (this.state.storeView === false) {
@@ -35,12 +36,19 @@ class NavBar extends Component {
     }
 
     return (
-      <>
-        <div id="border">
-          <h1 id="txt">Bound</h1>
-          <span className="berries" />
+      <div id="navigation">
+        <div id="navTop">
+          <img id="navLogo" src="/images/navIcon.png" alt="" />
+          <div id="container">
+            <div id="berries">
+              <img id="boundBerries" src="/images/WhiteBerryIcon.png" alt="" />
+              {/* hard coded for now, have to implement count function later */}
+              <h1 id="count">{berryCount}</h1>
+            </div>
+          </div>
         </div>
-        <div id="nav">
+        {screen}
+        <div id="navBottom">
           <button className="cal" onClick={this.handleClick}>
             Calendar
           </button>
@@ -48,8 +56,7 @@ class NavBar extends Component {
             Store
           </button>
         </div>
-        {screen}
-      </>
+      </div>
     );
   }
 }

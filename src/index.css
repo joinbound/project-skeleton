@@ -10,8 +10,6 @@ body {
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  width: 360px;
-  height: 600px;
 }
 
 code {
@@ -62,27 +60,59 @@ span.buttonText {
   font-family: 'Roboto', sans-serif;
 }
 
-#home {
-  border: 2px solid red;
+#navigation {
+  border: 2px solid purple;
+  width: 360px;
+  height: 600px;
 }
-#border {
-  border: 2px solid black;
+#navTop {
+  text-align: center;
+  margin-top: 5%;
+  padding-right: 5%;
+  padding-bottom: 5%;
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  box-shadow: 0 2px 6px -6px black;
+}
+#navLogo {
+  margin-left: 30%;
+  margin-right: auto;
   text-align: center;
 }
-#txt {
-  display: inline-block;
-  text-align: center;
-  font-family: 'gotham';
+#container {
+  width: 20%;
+  height: 30%;
 }
-span.berries {
+#berries {
   background-color: #ff5252;
-  width: 50px;
-  height: 30px;
-  display: inline-block;
-  border-radius: 10px;
-  margin-left: 10%;
-}
-#nav {
-  border: 2px solid blue;
+  border-radius: 18px;
+  width: auto;
+  padding: 0.03;
   text-align: center;
+  overflow: auto;
+  margin: auto;
+}
+
+#boundBerries {
+  width: 35%;
+  height: auto;
+  float: left;
+  padding-left: 18%;
+  margin-top: 5%;
+}
+#count {
+  color: white;
+  float: right;
+  padding-right: 18%;
+  font-size: 0.8em;
+}
+#navBottom {
+  border: 2px solid blue;
+
+  /* position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: white; */
 }
