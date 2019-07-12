@@ -49,12 +49,19 @@ class NavBar extends Component {
         </div>
         {screen}
         <div id="navBottom">
-          <button className="cal" onClick={this.handleClick}>
-            Calendar
-          </button>
-          <button className="store" onClick={this.handleClick}>
-            Store
-          </button>
+          <img
+            src="/images/CalendarIcon.png"
+            className="cal"
+            onClick={this.handleClick}
+            alt=""
+          />
+
+          <img
+            src="/images/ShoppingBagIcon.png"
+            className="store"
+            onClick={this.handleClick}
+            alt=""
+          />
         </div>
       </div>
     );
