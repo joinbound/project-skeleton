@@ -38,7 +38,7 @@ constructor(props) {
     const { calendarData } = this.state; 
 
     return (
-      <div className="calendarMain">
+      <div id="calBody">
         <div className="header">
           <h1 id="upcomingEvents"> Upcoming Events </h1>
         {calendarData.map((event) => {
