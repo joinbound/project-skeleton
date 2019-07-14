@@ -25,6 +25,18 @@ constructor(props) {
         time: 950,
         numberOfPeople: 3,
         numberOfBerries: 50, 
+      },
+      {
+        eventTitle: 'Title of Event 4',
+        time: 950,
+        numberOfPeople: 3,
+        numberOfBerries: 50, 
+      },
+      {
+        eventTitle: 'Title of Event 5',
+        time: 950,
+        numberOfPeople: 3,
+        numberOfBerries: 50, 
       }
     ]
   }
@@ -73,7 +85,7 @@ constructor(props) {
               </div>
             
               <div className="checkInButton">
-              <button id="checkIn"> Check In</button>
+              <button onclick="" id="checkIn"> Check in 15 minutes before</button>
               </div>
             </div>
           )

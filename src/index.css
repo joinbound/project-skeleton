@@ -132,6 +132,9 @@ span.buttonText {
 
 
 /* ---------------------------------Start Calendar---------------------------------*/
+#calBody {
+  overflow: scroll;
+}
 
 #upcomingEvents {
   font-family: AvenirNext-DemiBold;
@@ -142,13 +145,22 @@ span.buttonText {
 
 }
 
-#eventTitle {
-  font-family: AvenirNext-Medium;
+#eventInfo {
+  width: 142px;
+  height: 70px;
+  font-family: AvenirNext;
   font-size: 13px;
-  color: rgba(0,0,0,0.78);
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.77;
   letter-spacing: 0.2px;
-  text-align: left;
-  line-height: 23px;
+  color: rgba(0, 0, 0, 0.78);
+  width: 303px;
+  height: 109px;
+  border-radius: 6px;
+  box-shadow: 0.5px 0.5px 4px 0 rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
 }
 
 #numberOfBerries {
@@ -160,13 +172,20 @@ span.buttonText {
 }
 
 
-.checkIn {
+#checkIn {
   font-family: AvenirNext-DemiBold;
   font-size: 12px;
   color: #FFFFFF;
   letter-spacing: 0.22px;
   text-align: center;
   line-height: 13px;
+  border-radius: 50%;
+  width: 77px;
+  height: 73px;
+  background-color: #9b9b9b;
+  float: right;
 }
+
+
 
 /* ---------------------------------End Calendar---------------------------------*/
