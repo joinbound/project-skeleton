@@ -31,12 +31,6 @@ constructor(props) {
         time: 950,
         numberOfPeople: 3,
         numberOfBerries: 50, 
-      },
-      {
-        eventTitle: 'Title of Event 5',
-        time: 950,
-        numberOfPeople: 3,
-        numberOfBerries: 50, 
       }
     ]
   }
@@ -55,38 +49,25 @@ constructor(props) {
           <h1 id="upcomingEvents"> Upcoming Events </h1>
         {calendarData.map((event) => {
           return (
-            <div id="EventInfoAndCheckInButton">
-              <div id="eventInfo">
-
-              <ul className="infoForEachEvent"> 
-              <div id="eventTitle">
+            <div id="eventInfoAndCheckInButton">
+             
+              <div id="eventDetails">
               <img id="eventTitleIcon" src="/images/eventTitleIcon.png" alt="Event Title"/>
               {event.eventTitle}
-              </div>
-              </ul>
-
-              <ul className="infoForEachEvent"> 
+              <br></br>
               <img id="eventTimeIcon" src="/images/eventTimeIcon.png" alt="Event Time"/>
-              {event.time} <p> am Today</p>
-              </ul>
-
-              <ul className="infoForEachEvent">
-              <div id="numberOfBerries">
+              {event.time}  am Today
+              <br></br>
               <img id="eventBerryIcon" src="/images/redBerryIcon.png" alt="Event Time"/>
-              {event.numberOfBerries}
-              </div>
-              </ul>
-
-              <ul className="infoForEachEvent"> 
+              {event.numberOfBerries} Berries {" "}
               <img id="eventMemberIcon" src="/images/eventMemberIcon.png" alt="Event Time"/>
-              {event.numberOfPeople}
-              </ul>
+              {event.numberOfPeople} People {" "}
+              </div>
 
-              </div>
-            
               <div className="checkInButton">
-              <button onclick="" id="checkIn"> Check in 15 minutes before</button>
+              <button id="checkIn"> Check in 15 minutes before</button>
               </div>
+
             </div>
           )
         })}
