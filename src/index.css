@@ -237,3 +237,124 @@ span.buttonText {
 
 
 /* ---------------------------------End Calendar---------------------------------*/
+
+
+
+/* ----------------------------------Start Store---------------------------------*/
+
+#storeBody {
+  height: 460px;
+  overflow: scroll;
+  overflow-x: hidden;
+ }
+
+ .nameText { 
+  padding-left: 20px;
+  bottom: -2px; 
+  right: -2px; 
+  width: 290px;
+  height: 48px;
+  object-fit: contain;
+  font-family: 'gotham';
+  font-size: 18px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.28px;
+  color: #ffffff;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+ }
+
+ #featured {
+  position: relative;
+  flex-wrap: wrap;
+  padding-top: 5%;
+  padding-left: 2%;
+  padding-right: 5%; 
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+
+ }
+
+ #featured img,
+ #rewards img {
+  position: relative;
+  flex-wrap: wrap;
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 15px;
+ }
+
+ .featureGradientBox{
+  padding-bottom: 5%;
+  position: absolute;
+  bottom: 2px;
+  width: 335px;
+  height: 48px;
+  opacity: 0.75;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), #000000);
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+ }
+
+ #rewards {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  width: 375px;
+  padding-top: 8%;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+ }
+
+ .rewardGradientBox {
+    padding-bottom: 5%;
+    position: absolute;
+    bottom: 2px;
+    width: 168px;
+    height: 48px;
+    opacity: 0.75;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), #000000);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+ }
+
+ #rewardCard {
+  padding-left: 2%;
+  position: relative; 
+  flex-wrap: wrap;
+  width: 168px;
+  height: 145px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+ } 
+
+.rewardNameText {
+  padding-left: 10%;
+  width: 152px;
+  height: 41px;
+  object-fit: contain;
+  font-family: 'gotham';
+  font-size: 14px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.22px;
+  color: #ffffff;
+}
+
+#berryIcon {
+  width: 21px;
+  height: 21px;
+  background-color: #ff5252;
+}
+ 
+
+ 
+ /* ---------------------------------End Store-----------------------------------*/
+
+
+ 
